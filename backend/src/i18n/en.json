@@ -1,0 +1,11 @@
+{
+  "road_blocked": "ROAD BLOCKED: {road} is currently impassable ({reason}). Alternative routes have been activated.",
+  "high_risk_route": "HIGH RISK: {road} risk score is now {risk}/100 ({level}). Main factors: {factors}.",
+  "predicted_disruption": "PREDICTION: {road} has a high probability of disruption within the next few hours due to {reason}. This is a forecast, not a confirmed incident.",
+  "vehicle_delay": "Vehicle {vehicle} delayed - new ETA {eta}, +{delay} minutes versus original plan.",
+  "inaccessible_district": "{district} district connectivity has dropped to {score}/100 ({risk} risk) due to {reason}.",
+  "bridge_damage": "BRIDGE DAMAGE: {bridge} on {road} reported {condition}. Route capacity may be reduced.",
+  "emergency_route_change": "Vehicle {vehicle} auto-rerouted to a safer path (new risk {risk}/100). Driver notified.",
+  "supply_delivery_delay": "Shipment {shipment} ({cargo}) delayed by {delay} minutes. Destination notified.",
+  "incident_reported": "New {severity} severity {type} reported on {road}."
+}

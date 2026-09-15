@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="SIH26002 - AI-Based Smart Logistics and Accessibility Intelligence Platform for the North Eastern Region" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>NER Logistics Intelligence</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // MODULE 14 - PWA / offline-first: registers the service worker that
+      // caches the app shell so the dashboard/field-report form can still
+      // load (and queue reports) with no network connection.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => console.warn('SW registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+SIH26002 - NER LOGISTICS INTELLIGENCE PLATFORM
+==============================================
+
+TO RUN THIS ON ANY WINDOWS LAPTOP
+---------------------------------
+1. Copy this whole "SIH-portable" folder to the other laptop
+   (USB stick, Google Drive, or zip it - see the ZIP note below)
+
+2. Make sure Node.js 22.5 or newer is installed on that laptop
+   Check by opening Command Prompt and typing:  node -v
+   If it says "not recognized" or a number below 22, install the
+   LTS version from https://nodejs.org first.
+
+3. Double-click  START-HERE.bat
+
+   Everything is already bundled (packages AND the seeded demo
+   database with real road shapes), so it normally just starts
+   the servers and opens your browser in about 15 seconds.
+   NO INTERNET NEEDED for this step.
+
+4. The app opens at:  http://localhost:5173
+
+   Login (all accounts use password: Demo@1234)
+     manager@sih.gov.in    Logistics Manager  <- best for the main demo
+     driver1@sih.gov.in    Driver             <- for My Journey / navigation
+     field@sih.gov.in      Field Officer      <- for reporting incidents
+     authority@sih.gov.in  Authority Officer
+     admin@sih.gov.in      System Admin
+     viewer@sih.gov.in     Viewer / Analyst
+
+5. KEEP THE TWO BLACK WINDOWS OPEN while you demo.
+   Closing them stops the app. To stop everything, close both windows.
+
+
+IF YOU ZIP THIS FOLDER
+----------------------
+Use Windows' built-in "Send to > Compressed (zipped) folder".
+IMPORTANT: some zip tools skip hidden files starting with a dot.
+This project NEEDS these two files, so check they survived:
+
+    backend\.env
+    frontend\.env.local
+
+If backend\.env is missing, the backend crashes with
+"JWT_SECRET is not set" - that is almost certainly the error you
+hit before. If it is missing, copy backend\.env.example to
+backend\.env and it will work (weather falls back to simulated).
+
+
+IMPORTANT FOR THE PRESENTATION VENUE
+------------------------------------
+WHAT WORKS WITHOUT INTERNET:
+  Everything except the two items below. Packages and the seeded
+  database (with real road shapes) are already bundled in this
+  folder, so no downloads are needed to start.
+
+WHAT NEEDS INTERNET:
+  * MAP TILES - without Wi-Fi the map background is blank/grey.
+    Your coloured routes, vehicles and markers still draw on top,
+    and every number/table still works, but it looks far better
+    with internet. TEST THE VENUE WI-FI EARLY.
+  * LIVE WEATHER - without it the app silently falls back to
+    simulated weather. Nothing breaks; the "live" badge on the
+    Weather/Risk page just says "simulated" instead.
+
+TIP: run START-HERE.bat and click through your demo path a few
+minutes BEFORE presenting - that warms everything up and caches
+the map tiles for the areas you'll show.
+
+DO NOT run RESET-DEMO-DATA.bat at the venue unless you have Wi-Fi
+(it re-downloads the real road shapes; offline it falls back to
+straight lines, which looks worse).
+
+
+QUICK DEMO PATH (5 minutes)
+---------------------------
+1. Login as manager@sih.gov.in
+   - Dashboard: KPI cards, live map, alerts
+   - Say: "every road is scored live for risk"
+
+2. Weather / Risk page
+   - Show "live" badges - this is REAL weather from OpenWeatherMap
+   - Show Road Risk tab: each road's score AND its contributing factors
+
+3. Route Planner: Kamrup Metropolitan -> Papum Pare, priority Critical
+   - Click Calculate Routes
+   - Show 3 real routes on real roads, each with a risk score
+   - KEY POINT: the recommended one is NOT the shortest - read its
+     explanation out loud
+
+4. Open a second tab, login as field@sih.gov.in
+   - Incidents > Report Incident > landslide, critical, on the road
+     the recommended route uses
+   - Show the road instantly turns red and alerts fire
+
+5. Back as manager: recalculate the same route
+   - The recommendation has CHANGED to avoid the blocked road
+
+6. Login as driver1@sih.gov.in > My Journey
+   - Shows assigned shipment, turn-by-turn navigation, live GPS,
+     live route risk, and the reroute option when risk climbs
+
+CLOSING LINE:
+"Google Maps gives you the fastest route. This gives you the safest
+route for this cargo under current conditions - and changes its mind
+when conditions change."

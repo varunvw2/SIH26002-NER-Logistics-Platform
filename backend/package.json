@@ -1,0 +1,27 @@
+{
+  "name": "sih26002-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SIH26002 - AI-Based Smart Logistics and Accessibility Intelligence Platform for NER - backend",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "node --no-warnings src/server.js",
+    "migrate": "node --no-warnings src/db/migrate.js",
+    "seed": "node --no-warnings src/db/seed.js",
+    "setup": "npm run migrate && npm run seed",
+    "test": "node --no-warnings --test tests/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "multer": "^2.0.0",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.4.0",
+    "zod": "^3.23.8"
+  }
+}
